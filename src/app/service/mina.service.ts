@@ -13,6 +13,7 @@ export class MinaService {
 
   // Método para registrar una nueva mina
   registrarMina(mina: Mina): Observable<Mina> {
+     if (mina.tonsProducidas == null) mina.tonsProducidas = 0
      return this.http.post<Mina>(`${this.apiUrl}/nuevo`, mina, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
      });
